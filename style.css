@@ -134,7 +134,7 @@ body.dark-mode .logout-btn {
   color: white;
 }
 
-body.dark-mode .username,.pin{
+body.dark-mode .username,body.dark-mode .pin{
     background-color: #535353;
 }
 
