@@ -53,14 +53,12 @@ input:focus{
     border: 1px solid black;
     margin: auto;
     margin-top: 100px;
-    max-width: 400px;
-    padding: 25px;
+    max-width: 500px;
+    height: 300px;
+    padding: 20px;
     background-color: hsl(0, 0%, 95%);
     border-radius: 10px;
-    max-height: 500px;
     box-shadow: 1px 2px 3px hsl(0, 0%, 47%);
-    padding-bottom: 30px;
-     display: none;
 }
 
 .amount{
@@ -68,7 +66,7 @@ input:focus{
 }
 
 .bank-ui input{
-    margin-inline: 5px;
+    margin-inline: 7px;
     padding: 10px;
 }
 
@@ -77,10 +75,13 @@ input:focus{
     color: white;
     font-weight: bold;
     border: none;
-    min-width: 127px;
+    width: 250px;
+
 }
+
 .actions{
     display: flex;
+    gap: 5px;
 }
 
 .logout-btn{
@@ -90,7 +91,7 @@ input:focus{
     margin-top: 20px;
     border-radius: 2px;
     border: none;
-    min-width: 400px;
+    width: 490px;
 }
 
 .logout-btn:active ,.deposit:active , .withdraw:active{
