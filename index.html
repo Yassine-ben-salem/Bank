@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bank Account</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <script src="test.js"></script>
+  <div class="login" id="login">
+    <button id="mode-toggle" onclick="toggleMode()">🌙</button>
+    <h1 class="login-title">Login</h1>
+    <form action="" class="login-form">
+        <input type="text" class="username" placeholder="Username" id="username" required ><br>
+        <input type="number" class="pin" placeholder="PIN" id="pin" required  maxlength="4"><br>
+         <p id="error-msg" style="color:tomato;"></p>
+        <input type="button" value="Login" class="login-btn" id="login-btn" onclick="login()">
+    </form>
+  </div>
+  <div class="bank-ui" id="bank">
+    <h1 class="Welcome-msg" id="welcome">Welcome!</h1>
+    <p>Balance: $<span id="balance">0</span></p>
+  <div class="actions">
+    <input type="number" name="amount" id="amount" class="amount" placeholder="Amount" >
+    <input type="button" value="Withdraw" class="withdraw" onclick="withdraw()">
+    <input type="button" value="Deposit" class="deposit" onclick="deposit()">
+  </div>   
+  <p id="error-msg" style="color:tomato;"></p>
+  <p>Transactions:</p>
+  <div id="transactions">
+  </div>
+    <input type="button" value="Logout" class="logout-btn" onclick="logout()">
+  </div>
+</body>
+</html>

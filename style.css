@@ -1,0 +1,137 @@
+.login{
+    border: 1px solid black;
+    margin: auto;
+    margin-top: 100px;
+    max-width: 500px;
+    text-align: center;
+    padding: 20px;
+    background-color: hsl(0, 0%, 95%);
+    border-radius: 10px;
+    box-shadow: 1px 2px 3px hsl(0, 0%, 47%);
+   
+}
+
+.login-title{
+    font-size: 3rem;
+    margin-top: 5px;
+    margin-bottom: 40px;
+    text-align: center;
+    margin-left: 40px;
+}
+
+.login-btn, .pin, .username{
+    margin-bottom: 20px;
+    padding: 10px;
+    font-weight: bold;
+    border-radius: 10px;
+    border: none;
+}
+
+input:focus{
+    border-style: none;
+}
+
+.pin{
+    width: 175px;
+}
+
+.login-btn{
+    padding: 15px;
+    width: 100px;
+    background-color: hsl(197, 78%, 50%);
+    color: white;
+    margin-top: 25px;
+    border-radius: 2px;
+}   
+
+.login-btn:active{
+    background-color: hsl(197, 78%, 70%);
+}
+
+
+.bank-ui{
+    border: 1px solid black;
+    margin: auto;
+    margin-top: 100px;
+    max-width: 400px;
+    padding: 25px;
+    background-color: hsl(0, 0%, 95%);
+    border-radius: 10px;
+    max-height: 500px;
+    box-shadow: 1px 2px 3px hsl(0, 0%, 47%);
+    padding-bottom: 30px;
+     display: none;
+}
+
+.amount{
+    width: 100px;
+}
+
+.bank-ui input{
+    margin-inline: 5px;
+    padding: 10px;
+}
+
+.withdraw, .deposit{
+    background-color: hsl(197, 78%, 50%);
+    color: white;
+    font-weight: bold;
+    border: none;
+    min-width: 127px;
+}
+.actions{
+    display: flex;
+}
+
+.logout-btn{
+    padding: 15px;
+    background-color: hsl(197, 78%, 50%);
+    color: white;
+    margin-top: 20px;
+    border-radius: 2px;
+    border: none;
+    min-width: 400px;
+}
+
+.logout-btn:active ,.deposit:active , .withdraw:active{
+    background-color: hsl(197, 78%, 60%);
+}
+
+
+p{
+    font-weight: bold;
+}
+
+#error-msg{
+    text-align: center;
+    margin-block: 0;
+}
+
+#transactions{
+    margin-left: 20px;
+}
+
+body {
+  background-color: white;
+  color: black;
+  transition: all 0.3s ease;
+}
+
+
+.login button{
+    float: right;
+}
+
+#mode-toggle {
+  padding: 6px 12px;
+  cursor: pointer;
+  border-radius:15px;
+  background-color: hsl(0, 0%, 15%);
+}
+
+
+
+
+
+
+
