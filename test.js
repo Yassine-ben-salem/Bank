@@ -1,99 +1,75 @@
 let darkMode = false;
+let balance = 0;
+let transactions = [];
 
 function toggleMode() {
-  let body = document.body;
-  let button = document.getElementById("mode-toggle");
-
-  if (darkMode) {
-    body.style.backgroundColor = "white";
-    body.style.color = "black";
-    button.innerText = "🌙";
-    button.style.backgroundColor= "black";
-  } else {
-    body.style.backgroundColor = "#121212";
-    body.style.color = "white";
-    button.innerText = "☀️";
-    button.style.backgroundColor= "hsla(0, 0%, 80%, 1.00)";
-  }
+  document.body.classList.toggle("dark-mode");
   darkMode = !darkMode;
+  document.getElementById("mode-toggle").innerText = darkMode ? "☀️" : "🌙";
 }
 
+function showMessage(id, message) {
+  const msg = document.getElementById(id);
+  msg.innerText = message;
+  setTimeout(() => (msg.innerText = ""), 3000);
+}
 
-
-let balance = Number(document.getElementById("balance"));
-let transactions= []
+function showTransactions() {
+  document.getElementById("transactions").innerHTML = transactions.join("<br>");
+}
 
 function withdraw() {
-  let amount = Number(document.getElementById("amount").value);
-  if (amount==""){
-    document.getElementById("error-msg").innerHTML = "Please Select an amount first.";
-    setTimeout(function () {
-      document.getElementById("error-msg").innerHTML = "";
-    }, 3000);
-    return; 
+  const amount = Number(document.getElementById("amount").value);
+  if (isNaN(amount) || amount <= 0) {
+    showMessage("bank-error-msg", "Please enter a valid amount.");
+    return;
   }
-  document.getElementById("balance").innerText = balance;
   if (amount > balance) {
-      document.getElementById("error-msg").innerHTML = "You can't perform this action.";
-    setTimeout(function () {
-      document.getElementById("error-msg").innerHTML = "";
-    }, 3000);
-    return; 
+    showMessage("bank-error-msg", "Insufficient balance.");
+    return;
   }
-  balance = balance - amount;
+  balance -= amount;
   document.getElementById("balance").innerText = balance;
-  transactions.push(`Withdrew ${amount}\n`);
-  showtransactions();
+  transactions.push(`Withdrew $${amount}`);
+  showTransactions();
 }
-function deposit(){
-    let amount = Number(document.getElementById("amount").value);
-    if (amount==""){
-    document.getElementById("error-msg").innerHTML = "Please Select an amount first.";
-    setTimeout(function () {
-      document.getElementById("error-msg").innerHTML = "";
-    }, 3000);
-    return; 
+
+function deposit() {
+  const amount = Number(document.getElementById("amount").value);
+  if (isNaN(amount) || amount <= 0) {
+    showMessage("bank-error-msg", "Please enter a valid amount.");
+    return;
   }
-  balance= balance + amount;
-  console.log(balance);
+  balance += amount;
   document.getElementById("balance").innerText = balance;
-   transactions.push(`Diposited ${amount}\n`);
-  showtransactions()
+  transactions.push(`Deposited $${amount}`);
+  showTransactions();
 }
 
-function showtransactions(){
-  document.getElementById("transactions").innerHTML = transactions.join('<br>');
+function login() {
+  const username = document.getElementById("username").value.trim();
+  const pin = document.getElementById("pin").value.trim();
+  if (username === "" || pin.length !== 4 || isNaN(pin)) {
+    showMessage("login-error-msg", "Enter a valid username and 4-digit PIN.");
+    return;
+  }
+
+  document.getElementById("welcome").innerText = `Welcome ${username}!`;
+  document.getElementById("login").style.display = "none";
+  document.getElementById("bank").style.display = "flex";
+  document.getElementById("balance").innerText = balance;
 }
 
+function logout() {
+  document.getElementById("login").style.display = "flex";
+  document.getElementById("bank").style.display = "none";
 
-function login(){
-   let username = document.getElementById("username").value;
-   let pin = document.getElementById("pin").value;
-   if(username=="" || pin.length!=4 ){
-    document.getElementById("error-msg").innerHTML = "You must right your username and your 4-digit PIN.";
-    setTimeout(function () {
-      document.getElementById("error-msg").innerHTML = "";
-    }, 3000);
-    return; 
-   }
-   document.getElementById("welcome").innerHTML = `Welcome ${username}!`;
-   document.getElementById("login").style.display = "none";
-   document.getElementById("bank").style.display = "block"; 
-   return 0;
+  document.getElementById("username").value = "";
+  document.getElementById("pin").value = "";
+  document.getElementById("amount").value = "";
+  document.getElementById("transactions").innerHTML = "";
+  document.getElementById("balance").innerText = 0;
+
+  balance = 0;
+  transactions = [];
 }
-
-function logout(){
-   document.getElementById("login").style.display = "block";
-   document.getElementById("bank").style.display = "none";
-   document.getElementById("username").value = "";
-   document.getElementById("pin").value = "";
-}
-
-
-
-
-
-
-
-
-
