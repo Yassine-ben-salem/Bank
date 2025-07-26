@@ -126,7 +126,6 @@ body.dark-mode .transactions-box {
   border-color: #555;
 }
 
-body.dark-mode input,
 body.dark-mode .withdraw,
 body.dark-mode .deposit,
 body.dark-mode .login-btn,
@@ -135,13 +134,17 @@ body.dark-mode .logout-btn {
   color: white;
 }
 
+body.dark-mode .username,.pin{
+    background-color: #535353;
+}
+
 body.dark-mode #mode-toggle {
   background-color: hsl(0, 0%, 85%);
   color: black;
 }
 
 body.dark-mode ::placeholder {
-    color: #ffffff;
+    color: #bebebe;
     opacity: 1;
 }
 
