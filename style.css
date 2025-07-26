@@ -1,138 +1,171 @@
-.login{
-    border: 1px solid black;
-    margin: auto;
-    margin-top: 100px;
-    max-width: 500px;
-    text-align: center;
-    padding: 20px;
-    background-color: hsl(0, 0%, 95%);
-    border-radius: 10px;
-    box-shadow: 1px 2px 3px hsl(0, 0%, 47%);
-}
-
-.login-title{
-    font-size: 3rem;
-    margin-top: 5px;
-    margin-bottom: 40px;
-    text-align: center;
-    margin-left: 40px;
-}
-
-.login-btn, .pin, .username{
-    margin-bottom: 20px;
-    padding: 10px;
-    font-weight: bold;
-    border-radius: 10px;
-    border: none;
-}
-
-input:focus{
-    border-style: none;
-}
-
-.pin{
-    width: 175px;
-}
-
-.login-btn{
-    padding: 15px;
-    width: 100px;
-    background-color: hsl(197, 78%, 50%);
-    color: white;
-    margin-top: 25px;
-    border-radius: 2px;
-}   
-
-.login-btn:active{
-    background-color: hsl(197, 78%, 70%);
-}
-
-
-.bank-ui{
-    border: 1px solid black;
-    margin: auto;
-    margin-top: 100px;
-    max-width: 500px;
-    height: 300px;
-    padding: 20px;
-    background-color: hsl(0, 0%, 95%);
-    border-radius: 10px;
-    box-shadow: 1px 2px 3px hsl(0, 0%, 47%);
-    display: none;
-}
-
-.amount{
-    width: 100px;
-}
-
-.bank-ui input{
-    margin-inline: 7px;
-    padding: 10px;
-}
-
-.withdraw, .deposit{
-    background-color: hsl(197, 78%, 50%);
-    color: white;
-    font-weight: bold;
-    border: none;
-    width: 250px;
-
-}
-
-.actions{
-    display: flex;
-    gap: 5px;
-}
-
-.logout-btn{
-    padding: 15px;
-    background-color: hsl(197, 78%, 50%);
-    color: white;
-    margin-top: 20px;
-    border-radius: 2px;
-    border: none;
-    width: 490px;
-}
-
-.logout-btn:active ,.deposit:active , .withdraw:active{
-    background-color: hsl(197, 78%, 60%);
-}
-
-
-p{
-    font-weight: bold;
-}
-
-#error-msg{
-    text-align: center;
-    margin-block: 0;
-}
-
-#transactions{
-    margin-left: 20px;
+* {
+  box-sizing: border-box;
 }
 
 body {
   background-color: white;
   color: black;
+  font-family: Arial, sans-serif;
   transition: all 0.3s ease;
+  padding: 10px;
 }
 
+.login{
+  border: 1px solid black;
+  margin: 50px auto;
+  max-width: 500px;
+  padding: 20px;
+  background-color: hsl(0, 0%, 95%);
+  border-radius: 10px;
+  box-shadow: 1px 2px 3px hsl(0, 0%, 47%);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
 
-.login button{
-    float: right;
+.login input{
+    display: flex;
+}
+
+.bank-ui {
+  border: 1px solid black;
+  margin: 50px auto;
+  max-width: 500px;
+  padding: 20px;
+  background-color: hsl(0, 0%, 95%);
+  border-radius: 10px;
+  box-shadow: 1px 2px 3px hsl(0, 0%, 47%);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  display: none;
+}
+
+.login-title,
+.welcome-msg {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+input {
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  font-weight: bold;
+  width: 100%;
+}
+
+input:focus {
+  outline: none;
+}
+
+.login-btn,
+.withdraw,
+.deposit,
+.logout-btn {
+  background-color: hsl(197, 78%, 50%);
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.login-btn:active,
+.withdraw:active,
+.deposit:active,
+.logout-btn:active {
+  background-color: hsl(197, 78%, 65%);
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.transactions-box {
+  max-height: 120px;
+  overflow-y: auto;
+  background-color: hsl(0, 0%, 95%);
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  font-size: 0.9rem;
+}
+
+.logout-btn {
+  margin-top: 15px;
 }
 
 #mode-toggle {
-  padding: 6px 12px;
-  cursor: pointer;
-  border-radius:15px;
+  align-self: flex-end;
   background-color: hsl(0, 0%, 15%);
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 15px;
+  cursor: pointer;
 }
 
 
+body.dark-mode {
+  background-color: #121212;
+  color: white;
+}
 
+body.dark-mode .login,
+body.dark-mode .bank-ui {
+  background-color: #1e1e1e;
+  color: white;
+  box-shadow: 1px 2px 3px hsl(0, 0%, 15%);
+}
 
+body.dark-mode .transactions-box {
+  background-color: #2c2c2c;
+  color: white;
+  border-color: #555;
+}
 
+body.dark-mode input,
+body.dark-mode .withdraw,
+body.dark-mode .deposit,
+body.dark-mode .login-btn,
+body.dark-mode .logout-btn {
+  background-color: hsl(197, 78%, 40%);
+  color: white;
+}
 
+body.dark-mode #mode-toggle {
+  background-color: hsl(0, 0%, 85%);
+  color: black;
+}
 
+body.dark-mode ::placeholder {
+    color: #ffffff;
+    opacity: 1;
+}
+
+@media (min-width: 600px) {
+  .actions {
+    flex-direction: row;
+  }
+
+  .actions input {
+    width: auto;
+  }
+
+  .withdraw,
+  .deposit {
+    flex: 1;
+  }
+
+  .amount {
+    width: 100px;
+  }
+}
+
+.error-msg {
+  color: tomato;
+  text-align: center;
+  margin: 0;
+}
